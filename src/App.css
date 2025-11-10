@@ -1,0 +1,56 @@
+/* index.css or App.css */
+
+/* Global body styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: #fff;
+}
+
+/* Optional: fix link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ticker animation and styling */
+@keyframes ticker-move {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 16px;
+  padding-left: 1rem;
+  animation: ticker-move 22s linear infinite;
+}
+
+/* Optional: container max width (adjust as needed for your layout) */
+#root {
+  max-width: 1300px;
+  margin: 0 auto;
+  /* You may remove padding or set padding: 0; if you want sections flush to main width */
+  padding: 0;
+  text-align: center;
+}
+
+/* Example logo and card styles (include only if you use them) */
+.logo { height: 6em; padding: 1.5em; will-change: filter; transition: filter 300ms; }
+.logo:hover { filter: drop-shadow(0 0 2em #646cffaa); }
+.logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa); }
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card { padding: 2em; }
+.read-the-docs { color: #888; }

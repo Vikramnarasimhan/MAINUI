@@ -1,0 +1,335 @@
+/* ============================================
+   TICKER BAR
+   ============================================ */
+.ticker-bar {
+  position: relative;
+  background: #e6750c;
+  color: #fff;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  width: 100%;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  border-bottom: 2px solid #d95d1a;
+  z-index: 1201;
+}
+
+.ticker-live {
+  background: #e45f13;
+  color: #fff;
+  font-weight: bolder;
+  border-radius: 3px;
+  padding: 0 12px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-size: 0.97rem;
+  letter-spacing: 1.5px;
+  z-index: 2;
+  position: relative;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 32px;
+  padding-left: 1rem;
+  animation: ticker-move 22s linear infinite;
+  will-change: transform;
+  z-index: 1;
+}
+
+@keyframes ticker-move {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ============================================
+   LIGHT MODE (DEFAULT)
+   ============================================ */
+html,
+body,
+#root {
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', 'Garamond', serif;
+  color: #1a1a1a;
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+html.dark-mode,
+html.dark-mode body,
+html.dark-mode #root {
+  background: #121212 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Dark mode for all containers */
+html.dark-mode .MuiBox-root,
+html.dark-mode .MuiContainer-root,
+html.dark-mode .MuiPaper-root {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+}
+
+/* Dark mode for cards */
+html.dark-mode .MuiCard-root {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  border: 1px solid #333333 !important;
+}
+
+/* Dark mode typography */
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6,
+html.dark-mode p,
+html.dark-mode span,
+html.dark-mode .MuiTypography-root {
+  color: #f5f5f5 !important;
+}
+
+/* Keep red accents visible in dark mode */
+html.dark-mode .red-accent,
+html.dark-mode .MuiButton-contained {
+  background-color: #c41e3a !important;
+  color: #ffffff !important;
+}
+
+/* Dark mode images - slightly dimmed */
+html.dark-mode img {
+  opacity: 0.9;
+  filter: brightness(0.9);
+}
+
+/* Dark mode links */
+html.dark-mode a {
+  color: #64b5f6;
+}
+
+html.dark-mode a:hover {
+  color: #90caf9;
+}
+
+/* Dark mode scrollbar */
+html.dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 5px;
+}
+
+html.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #505050;
+}
+
+/* ============================================
+   LIGHT MODE SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #991b1b;
+}
+
+/* ============================================
+   COMMON STYLES
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Selection color - Red (both modes) */
+::selection {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.hover-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
+}
+
+@keyframes fire {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(5deg);
+  }
+}
+
+.fire-animation {
+  animation: fire 1s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section,
+.fade-in,
+[class*="Section"],
+[class*="Component"] {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+.fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.no-animation * {
+  animation: none !important;
+}
+
+/* ============================================
+   DARK MODE DIVIDERS
+   ============================================ */
+html.dark-mode hr,
+html.dark-mode .MuiDivider-root {
+  border-color: #333333 !important;
+}
+
+/* ============================================
+   DARK MODE INPUT FIELDS
+   ============================================ */
+html.dark-mode input,
+html.dark-mode textarea,
+html.dark-mode select {
+  background-color: #262626 !important;
+  color: #f5f5f5 !important;
+  border-color: #404040 !important;
+}
+
+html.dark-mode input::placeholder,
+html.dark-mode textarea::placeholder {
+  color: #888888 !important;
+}
+
+/* ============================================
+   DARK MODE SHADOWS (SOFTER IN DARK MODE)
+   ============================================ */
+html.dark-mode .hover-glow:hover {
+  box-shadow: 0 8px 24px rgba(196, 30, 58, 0.3);
+}
