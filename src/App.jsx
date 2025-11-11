@@ -31,6 +31,8 @@ import PhotoStories from "./components/PhotoStories";
 import StripeCheckout from "./components/StripeCheckout";
 import { Elements } from "@stripe/react-stripe-js";
 import stripePromise from "./stripe/stripePromise";
+import LexChatbot from "./components/LexChatbot";
+
 
 function MainPageContent() {
   return (
@@ -172,6 +174,7 @@ function MainPageContent() {
           </Typography>
         </Box>
         <Footer />
+        <LexChatbot />
       </div>
     </div>
   );
